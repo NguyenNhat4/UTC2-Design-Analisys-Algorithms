@@ -4,6 +4,8 @@
 # altogether.
 
 
+
+# Create tree
 class TreeNode:
     def __init__(self, data):
         self.data = data
@@ -22,14 +24,26 @@ class TreeNode:
             else:
                 self.right.add_node(data)
 
-# Create a function to add 20 nodes to the binary tree
 def add_20_nodes(tree):
     for i in range(1, 21):
         tree.add_node(i)
 
-# Create the root node
 root = TreeNode(10)
 
-# Add 20 nodes to the binary tree
 add_20_nodes(root)
 
+
+
+
+# SOLUTION
+# SOLUTION
+
+def HeightOfTree(root):
+    if root is None:
+        return -1
+    return max(HeightOfTree(root.left),HeightOfTree(root.right)) + 1
+
+    
+print("tree height is :",HeightOfTree(root))
+
+    
