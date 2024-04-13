@@ -1,67 +1,48 @@
-def is5DigitNumber_allDegitisPrime(a):
-    if a < 22222 and a > 77777:
-       return False
-    while a > 0 :
-        last = a%10
-        a//=10
-        if isPrime(last) == False: 
-            return False
-        
-    return True
-    
-
-
-    
-def isPrime(a):
-    if a <= 1:
+﻿function is5DigitNumber_allDegitisPrime(a)
+    if a < 22222 or a > 77777 then
         return False
-    if a==2:
-        return True
-    squareRoot = int(a**(0.5)) + 1
-    for i in range(2,squareRoot):
-        if(a%i == 0):
+    while a > 0 do
+        last = a mod 10
+        a = a / 10
+        if isPrime(last) == False then
             return False
-        
     return True
 
+function isPrime(a)
+    if a <= 1 then
+        return False
+    if a == 2 then
+        return True
+    squareRoot = floor(sqrt(a)) + 1
+    for i = 2 to squareRoot - 1 do
+        if a mod i == 0 then
+            return False
+    return True
 
-def productAndSumDivisible(a, p, q):
+function productAndSumDivisible(a, p, q)
     product = 1
     digitSum = 0
-    while a > 0:
-        digit = a % 10
+    while a > 0 do
+        digit = a mod 10
         product *= digit
         digitSum += digit
-        a //= 10
+        a = a / 10
+    return product mod q == 0, digitSum mod p == 0
 
-    return product % q == 0, digitSum % p == 0
+function contains_digit(n, digit)
+    return digit in str(n)
 
+function Print_K_If_Satisfy_All_Condition(k, p, q, r)
+    if is5DigitNumber_allDegitisPrime(k) and isPrime(k) and productAndSumDivisible(k, p, q) and not contains_digit(k, r) then
+        print(k, end=", ")
 
+P = input("Input P:")
+Q = input("Input Q:")
+R = input("Input R:")
 
-def contains_digit(n, digit):
-    return str(digit) in str(n)  
+function listK(a, z, P, Q, R)
+    print("K are: ", end="")
+    for k = a to z - 1 do
+        Print_K_If_Satisfy_All_Condition(k, P, Q, R)
 
-
-def Print_K_If_Satisfy_All_Condition(k,p,q,r):
-    if is5DigitNumber_allDegitisPrime(k) and isPrime(k) and productAndSumDivisible(k, p, q) and not contains_digit(k,r):
-        print(k, end= " ,")        
-P = int(input("Input P:"))
-Q = int(input("Input Q:"))
-R = int(input("Input R:"))
-
-
-
-
-def listK(a,z,P,Q,R):
-    print("K are: ",end="")
-    for k in range  (a,z):
-        Print_K_If_Satisfy_All_Condition(k,P,Q,R)
-
-
-listK(10000,100000,P,Q,R)
-
-
-
-
-
-
+listK(10000, 100000, P, Q, R)

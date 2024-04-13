@@ -1,27 +1,36 @@
-function Dijkstra(graph, start, end):
-    distances = {vertex: infinity for vertex in graph}
-    distances[start] = 0
-    priority_queue = [(0, start)]
-    while priority_queue is not empty:
-      
-        if current_vertex equals end:
-            return distances[end]
-        if current_distance <= distances[current_vertex]:
-            for neighbor, weight in graph[current_vertex].items():
-                distance = current_distance + weight
-                if distance < distances[neighbor]:
-                    distances[neighbor] = distance
-                    priority_queue.push((distance, neighbor))
-    return infinity
+ShortestPathBFS(Graph G, Vertex source, Vertex destination):
+    // Initialize
+    for each vertex v in G:
+        v.color = WHITE
+        v.d = ∞
+        v.π = NIL
+    source.color = GRAY
+    source.d = 0
+    source.π = NIL
+    
+    // Initialize Queue
+    Q = Queue()
+    Q.enqueue(source)
+    
+    // BFS
+    while Q is not empty:
+        u = Q.dequeue()
+        if u == destination:
+            return ReconstructPath(source, destination)
+        for each vertex v in G.adj[u]:
+            if v.color == WHITE:
+                v.color = GRAY
+                v.d = u.d + 1
+                v.π = u
+                Q.enqueue(v)
+        u.color = BLACK
+    return "No path exists"
 
-
-graph = {
-    'A': {'B': 2, 'C': 1},
-    'B': {'A': 2, 'D': 3},
-    'C': {'A': 1, 'D': 1},
-    'D': {'B': 3, 'C': 1, 'E': 5},
-    'E': {'D': 5}
-}
-shortest_distance = Dijkstra(graph, 'A', 'E')
-print("Đường đi ngắn nhất từ 'A' đến 'E':", shortest_distance)
-
+ReconstructPath(Vertex source, Vertex destination):
+    path = []
+    current = destination
+    while current != source:
+        path.prepend(current)
+        current = current.π
+    path.prepend(source)
+    return path
