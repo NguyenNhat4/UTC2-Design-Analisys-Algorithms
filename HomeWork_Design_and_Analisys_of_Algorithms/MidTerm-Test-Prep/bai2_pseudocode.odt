@@ -1,0 +1,67 @@
+def is5DigitNumber_allDegitisPrime(a):
+    if a < 22222 and a > 77777:
+       return False
+    while a > 0 :
+        last = a%10
+        a//=10
+        if isPrime(last) == False: 
+            return False
+        
+    return True
+    
+
+
+    
+def isPrime(a):
+    if a <= 1:
+        return False
+    if a==2:
+        return True
+    squareRoot = int(a**(0.5)) + 1
+    for i in range(2,squareRoot):
+        if(a%i == 0):
+            return False
+        
+    return True
+
+
+def productAndSumDivisible(a, p, q):
+    product = 1
+    digitSum = 0
+    while a > 0:
+        digit = a % 10
+        product *= digit
+        digitSum += digit
+        a //= 10
+
+    return product % q == 0, digitSum % p == 0
+
+
+
+def contains_digit(n, digit):
+    return str(digit) in str(n)  
+
+
+def Print_K_If_Satisfy_All_Condition(k,p,q,r):
+    if is5DigitNumber_allDegitisPrime(k) and isPrime(k) and productAndSumDivisible(k, p, q) and not contains_digit(k,r):
+        print(k, end= " ,")        
+P = int(input("Input P:"))
+Q = int(input("Input Q:"))
+R = int(input("Input R:"))
+
+
+
+
+def listK(a,z,P,Q,R):
+    print("K are: ",end="")
+    for k in range  (a,z):
+        Print_K_If_Satisfy_All_Condition(k,P,Q,R)
+
+
+listK(10000,100000,P,Q,R)
+
+
+
+
+
+

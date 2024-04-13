@@ -1,0 +1,27 @@
+function Dijkstra(graph, start, end):
+    distances = {vertex: infinity for vertex in graph}
+    distances[start] = 0
+    priority_queue = [(0, start)]
+    while priority_queue is not empty:
+      
+        if current_vertex equals end:
+            return distances[end]
+        if current_distance <= distances[current_vertex]:
+            for neighbor, weight in graph[current_vertex].items():
+                distance = current_distance + weight
+                if distance < distances[neighbor]:
+                    distances[neighbor] = distance
+                    priority_queue.push((distance, neighbor))
+    return infinity
+
+
+graph = {
+    'A': {'B': 2, 'C': 1},
+    'B': {'A': 2, 'D': 3},
+    'C': {'A': 1, 'D': 1},
+    'D': {'B': 3, 'C': 1, 'E': 5},
+    'E': {'D': 5}
+}
+shortest_distance = Dijkstra(graph, 'A', 'E')
+print("Đường đi ngắn nhất từ 'A' đến 'E':", shortest_distance)
+

@@ -1,0 +1,27 @@
+﻿
+
+# time efficency of dfs if we use adjacent list is O(n)
+
+# this algorithm will traverse through next node that connects to the current node until it can't find connection anymore 
+# it will backtrack and go to the next node that hasn't been to yet.
+
+
+graph = {
+    'A': ['B', 'C'],
+    'B': ['D', 'E'],
+    'C': ['F'],
+    'D': [],
+    'E': ['F'],
+    'F': []
+}
+visited = set()
+
+function dfs(graph, node, visited):
+    if node not in visited:
+        print(node, end=' ')
+        visited.add(node)
+        for neighbour in graph[node]:
+            dfs(graph, neighbour, visited)
+
+dfs(graph,'A', visited)
+
