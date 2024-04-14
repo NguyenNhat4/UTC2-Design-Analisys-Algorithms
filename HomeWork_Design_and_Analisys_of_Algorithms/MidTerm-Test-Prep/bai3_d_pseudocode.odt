@@ -1,3 +1,6 @@
+
+Time efficient for this algorithm is O(E+V)
+
 ShortestPathBFS(Graph G, Vertex source, Vertex destination):
     // Initialize
     for each vertex v in G:
