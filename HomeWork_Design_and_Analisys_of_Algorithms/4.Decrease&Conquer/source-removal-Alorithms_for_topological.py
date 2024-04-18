@@ -28,7 +28,7 @@ def topological_sort(vertices, edges):
     else:
         return None
 
-# Example usage:
+#input
 vertices = ['A', 'B', 'C', 'D', 'E']
 edges = [('A', 'B'), ('A', 'C'), ('B', 'D'), ('C', 'D'), ('D', 'E')]
 print(topological_sort(vertices, edges))
