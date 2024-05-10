@@ -9,4 +9,4 @@ def meetingRoom(s, f):
             end_time = end
     
     return count
-/bin/bash: line 1: q: command not found
+
