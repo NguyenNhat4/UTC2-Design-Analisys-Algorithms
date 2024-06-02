@@ -36,5 +36,5 @@ weights = [2, 3, 4, 5]
 
 max_weight, selected_items = knapsack(n, W, weights)
 
-print("Dòng 1: Tổng khối lượng của các món hàng bỏ vào balô:", max_weight)
-print("Dòng 2: Số thứ tự của các món hàng được chọn (đếm từ 1):", selected_items)
+print( max_weight)
+print( selected_items)
