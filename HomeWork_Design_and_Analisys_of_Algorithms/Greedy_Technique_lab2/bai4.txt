@@ -1,0 +1,19 @@
+Bước khởi tạo:
+Chọn một thành phố bất kỳ làm điểm bắt đầu (ví dụ: chọn thành phố “a”).
+Đánh dấu thành phố này đã được thêm vào chu trình.
+Lặp qua các bước sau cho đến khi tất cả các thành phố đã được thêm vào chu trình:
+Tìm thành phố gần nhất chưa được thêm vào chu trình từ thành phố hiện tại.
+Thêm thành phố này vào chu trình và đánh dấu nó đã được thêm.
+Kết thúc chu trình:
+Thêm khoảng cách từ thành phố cuối cùng đến thành phố bắt đầu vào tổng khoảng cách của chu trình.
+Áp dụng thuật toán tham ăn vào ma trận khoảng cách đã cho:
+
+Bắt đầu từ thành phố “a”.
+Thêm thành phố “g” (khoảng cách 1) → tổng khoảng cách = 1.
+Thêm thành phố “b” (khoảng cách 15) → tổng khoảng cách = 16.
+Thêm thành phố “f” (khoảng cách 4) → tổng khoảng cách = 20.
+Thêm thành phố “c” (khoảng cách 6) → tổng khoảng cách = 26.
+Thêm thành phố “d” (khoảng cách 6) → tổng khoảng cách = 32.
+Thêm thành phố “e” (khoảng cách 4) → tổng khoảng cách = 36.
+Quay trở lại thành phố “a” (khoảng cách 11) → tổng khoảng cách = 47.
+Vậy chu trình ngắn nhất là: a → g → b → f → c → d → e → a, với tổng độ dài các cạnh là 47.
