@@ -4,7 +4,7 @@ def dijkstra(graph, start):
     distances = {vertex: float('infinity') for vertex in graph}
     distances[start] = 0
     priority_queue = [(0, start)]
-    predecessors = {vertex: None for vertex in graph}
+    predecessors = {vertex: None for verex in graph}
     
     while priority_queue:
         current_distance, current_vertex = heapq.heappop(priority_queue)
@@ -21,6 +21,8 @@ def dijkstra(graph, start):
                 heapq.heappush(priority_queue, (distance, neighbor))
 
     return distances, predecessors
+
+
 graph = {
     'A': [('B', 1), ('C', 4)],
     'B': [('A', 1), ('C', 2), ('D', 5)],
